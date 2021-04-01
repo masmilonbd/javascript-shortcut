@@ -1,0 +1,18 @@
+// Filter array of Object for checking match and unmatched array
+
+
+const unmatchedData = (newData, oldData) => {
+  return newData.filter((x) =>
+    oldData.every((y) => y.mobile !== x.mobile && x)
+  );
+};
+
+const matchedData = (newData, oldData) => {
+  return newData.filter((x) => oldData.some((y) => y.mobile === x.mobile && x));
+};
+
+const newEntry = unmatchedData(newData, oldData);
+const sameEntry = matchedData(newData, oldData);
+
+console.log("newEntry: ", newEntry);
+console.log("sameEntry: ", sameEntry);
