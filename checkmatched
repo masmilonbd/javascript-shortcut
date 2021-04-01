@@ -1,0 +1,48 @@
+const oldData = [
+  {
+    name: "Milon",
+    age: 30,
+    mobile: 123,
+  },
+  {
+    name: "Aril",
+    age: 25,
+    mobile: 124,
+  },
+];
+
+const newData = [
+  {
+    name: "Milon",
+    age: 30,
+    mobile: 123,
+  },
+  {
+    name: "Rumi",
+    age: 20,
+    mobile: 122,
+  },
+  {
+    name: "Aril",
+    age: 25,
+    mobile: 124,
+  },
+];
+
+const unmatchedData = (newData, oldData, checkData) => {
+  return newData.filter((x) =>
+    oldData.every((y) => y[checkData] !== x[checkData] && x)
+  );
+};
+
+const matchedData = (newData, oldData, checkData) => {
+  return newData.filter((x) =>
+    oldData.some((y) => y[checkData] === x[checkData] && x)
+  );
+};
+
+const newEntry = unmatchedData(newData, oldData, "mobile");
+const sameEntry = matchedData(newData, oldData, "mobile");
+
+console.log("newEntry: ", newEntry);
+console.log("sameEntry: ", sameEntry);
